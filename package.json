@@ -1,0 +1,8 @@
+{
+  "name": "sharingbuttons",
+  "description": "Sharingbuttons for Kirby CMS",
+  "author": "Flo Kosiol <git@flokosiol.de>",
+  "version": "1.0.0",
+  "type": "kirby-plugin",
+  "license": "MIT"
+}
