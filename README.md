@@ -59,7 +59,7 @@ Simply use the `sharingbuttons()` method in your template like this:
 
 
 ```
-<?php echo page()->sharingbuttons(); ?>
+<?= page()->sharingbuttons(); ?>
 ```
 
 
@@ -85,7 +85,7 @@ You can change the default appearance in your `config.php` file, e.g. `site/conf
   // define the size (small, medium, large)
   c::set('plugin.sharingbuttons.size', 'small');
 
-  // define the size (normal, solid, circle, solidcircle)
+  // define the style (normal, solid, circle, solidcircle)
   c::set('plugin.sharingbuttons.style', 'solid');
 
   // define the networks, their title and the order of the buttons
