@@ -1,12 +1,12 @@
 # Kirby Sharingbuttons
 
-![Version](https://img.shields.io/badge/Version-1.0.0-green.svg) ![Kirby](https://img.shields.io/badge/Kirby-2.3+-red.svg)
+![Version](https://img.shields.io/badge/Version-1.1-green.svg) ![Kirby](https://img.shields.io/badge/Kirby-2.3+-red.svg)
 
 With this plugin for [Kirby 2](http://getkirby.com) you can easily include the [sharingbuttons](http://sharingbuttons.io/) by [@mxstbr](https://github.com/mxstbr).
 
 > Super fast and easy Social Media Sharing Buttons. No JavaScript. No tracking.
 
-**Please notice:**  
+**Please notice:**
 So far, only the solid icon style is supported, but all sizes and all networks are included.
 
 
@@ -68,7 +68,7 @@ Simply use the `sharingbuttons()` method in your template like this:
 
 ## Customization
 
-### 1. CSS 
+### 1. CSS
 
 You can easily adjust the css by copying the original file from `site/plugins/sharingbuttons/assets/css/sharingbuttons.css` to `assets/plugins/sharingbuttons/css/sharingbuttons.css`. Kirby will then use your file instead of the one included in the plugin directory.
 

@@ -6,7 +6,7 @@
  * @package   Kirby CMS
  * @author    Flo Kosiol <git@flokosiol.de>
  * @link      http://flokosiol.de
- * @version   1.0.0
+ * @version   1.1
  */
 
 /**
@@ -16,8 +16,8 @@
 page::$methods['sharingbuttons'] = function($page, $config = false) {
 
   // get custom setting from config.php or set defaults
-  $size = c::get('plugin.sharingbuttons.size','small');
-
+  $size     = c::get('plugin.sharingbuttons.size','small');
+  $style    = c::get('plugin.sharingbuttons.style','solid');
   $networks = c::get('plugin.sharingbuttons.networks', [
     'twitter' => 'Twitter',
     'facebook' => 'Facebook',
@@ -39,6 +39,10 @@ page::$methods['sharingbuttons'] = function($page, $config = false) {
     $size = $config['size'];
   }
 
+  if (!empty($config['style']) && in_array($config['style'], ['normal', 'solid', 'circle', 'solidcircle'])) {
+    $style = $config['style'];
+  }
+
   if (!empty($config['networks']) && is_array($config['networks'])) {
     $networks = $config['networks'];
   }
@@ -48,6 +52,7 @@ page::$methods['sharingbuttons'] = function($page, $config = false) {
     'url' => urlencode($page->url()),
     'description' => urlencode($page->title()),
     'size' => $size,
+    'style' => $style,
   );
 
   // build html brick
