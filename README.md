@@ -6,9 +6,6 @@ With this plugin for [Kirby 2](http://getkirby.com) you can easily include the [
 
 > Super fast and easy Social Media Sharing Buttons. No JavaScript. No tracking.
 
-**Please notice:**
-So far, only the solid icon style is supported, but all sizes and all networks are included.
-
 
 ## Requirements
 
@@ -88,6 +85,9 @@ You can change the default appearance in your `config.php` file, e.g. `site/conf
   // define the size (small, medium, large)
   c::set('plugin.sharingbuttons.size', 'small');
 
+  // define the size (normal, solid, circle, solidcircle)
+  c::set('plugin.sharingbuttons.style', 'solid');
+
   // define the networks, their title and the order of the buttons
   c::set('plugin.sharingbuttons.networks', array(
     'twitter' => 'Twitter',
@@ -112,7 +112,7 @@ You can change the default appearance in your `config.php` file, e.g. `site/conf
 In case you need different styles for different templates, you can override your own settings by adding params to the page method like this.
 
 ```
-<?= page()->sharingbuttons(['size' => 'medium', 'networks' => ['facebook' => 'Facebook','twitter' => 'Twitter']]) ?>
+<?= page()->sharingbuttons(['size' => 'medium', 'style' => 'circle', 'networks' => ['facebook' => 'Facebook','twitter' => 'Twitter']]) ?>
 ```
 
 ### 3. Translations
