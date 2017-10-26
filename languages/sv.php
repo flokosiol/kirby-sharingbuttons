@@ -1,6 +1,6 @@
 <?php
 
-// Copy the content of this files to site/languages/fr.php and adjust it to your needs
+// Copy the content of this files to site/languages/sv.php and adjust it to your needs
 
 l::set('plugin.sharingbuttons.facebook', 'Dela på Facebook');
 l::set('plugin.sharingbuttons.twitter', 'Dela på Twitter');
