@@ -1,6 +1,6 @@
 # Kirby Sharingbuttons
 
-![Version](https://img.shields.io/badge/Version-1.1-green.svg) ![Kirby](https://img.shields.io/badge/Kirby-2.3+-red.svg)
+![Version](https://img.shields.io/badge/Version-1.2-green.svg) ![Kirby](https://img.shields.io/badge/Kirby-2.3+-red.svg)
 
 With this plugin for [Kirby 2](http://getkirby.com) you can easily include the [sharingbuttons](http://sharingbuttons.io/) by [@mxstbr](https://github.com/mxstbr).
 
@@ -14,7 +14,7 @@ With this plugin for [Kirby 2](http://getkirby.com) you can easily include the [
 
 ## Installation
 
-### 1. Kirby CLI
+### Kirby CLI
 
 If you are using the [Kirby CLI](https://github.com/getkirby/cli), you can install this plugin by running the following command in your shell from the root folder of your Kirby installation:
 
@@ -22,7 +22,7 @@ If you are using the [Kirby CLI](https://github.com/getkirby/cli), you can insta
 kirby plugin:install flokosiol/kirby-sharingbuttons
 ```
 
-### 2. Download
+### Download
 
 Of course you can also download and unpack the zip file (or simply clone the repository). If necessary, rename the folder to `sharingbuttons` and put it into `site/plugins` of your Kirby installation.
 
@@ -32,7 +32,7 @@ Please make sure, that the plugin folder structure looks like this:
 site/plugins/sharingbuttons/
 ```
 
-### 3. Git Submodule
+### Git Submodule
 
 If you want to add this plugin as a Git submodule.
 
@@ -154,8 +154,6 @@ You can find some translations in `site/plugins/sharingbuttons/languages/`. You 
   l::set('plugin.sharingbuttons.telegram', 'Auf Telegram teilen');
 ?>
 ```
-
-## Roadmap and ideas
 
 ## Credits
 
