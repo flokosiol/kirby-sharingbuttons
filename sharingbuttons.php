@@ -16,25 +16,35 @@
 page::$methods['sharingbuttons'] = function($page, $config = false) {
 
   // get custom setting from config.php or set defaults
-  $size     = c::get('plugin.sharingbuttons.size','small');
-  $style    = c::get('plugin.sharingbuttons.style','solid');
-  $networks = c::get('plugin.sharingbuttons.networks', [
-    'twitter' => 'Twitter',
-    'facebook' => 'Facebook',
-    'google' => 'Google+',
-    'linkedin' => 'LinkedIn',
-    'email' => 'E-Mail',
-    // 'tumblr' => 'Tumblr',
-    // 'pinterest' => 'Pinterest',
-    // 'reddit' => 'Reddit',
-    // 'xing' => 'XING',
-    // 'whatsapp' => 'WhatsApp',
-    // 'hackernews' => 'Hacker News',
-    // 'vk' => 'VK',
-    // 'telegram' => 'Telegram',
+  $urlField         = c::get('plugin.sharingbuttons.urlField', 'url');
+  $descriptionField = c::get('plugin.sharingbuttons.descriptionField', 'title');
+  $size             = c::get('plugin.sharingbuttons.size','small');
+  $style            = c::get('plugin.sharingbuttons.style','solid');
+  $networks         = c::get('plugin.sharingbuttons.networks', [
+    'twitter'     => 'Twitter',
+    'facebook'    => 'Facebook',
+    'google'      => 'Google+',
+    'linkedin'    => 'LinkedIn',
+    'email'       => 'E-Mail',
+    // 'tumblr'      => 'Tumblr',
+    // 'pinterest'   => 'Pinterest',
+    // 'reddit'      => 'Reddit',
+    // 'xing'        => 'XING',
+    // 'whatsapp'    => 'WhatsApp',
+    // 'hackernews'  => 'Hacker News',
+    // 'vk'          => 'VK',
+    // 'telegram'    => 'Telegram',
   ]);
 
   // override with inline settings if set
+  if (!empty($config['urlField'])) {
+    $urlField = $config['urlField'];
+  }
+
+  if (!empty($config['descriptionField'])) {
+    $descriptionField = $config['descriptionField'];
+  }
+
   if (!empty($config['size']) && in_array($config['size'], ['small', 'medium', 'large'])) {
     $size = $config['size'];
   }
@@ -48,12 +58,15 @@ page::$methods['sharingbuttons'] = function($page, $config = false) {
   }
 
   // prepare data for templates
-  $data = array(
-    'url' => urlencode($page->url()),
-    'description' => urlencode($page->title()),
-    'size' => $size,
-    'style' => $style,
-  );
+  $url = (string) (isset($config['url']) ? $config['url'] : call([$page, $urlField]));
+  $description = (string) (isset($config['description']) ? $config['description'] : call([$page, $descriptionField]));
+
+  $data = [
+    'url'         => rawurlencode($url),
+    'description' => rawurlencode($description),
+    'size'        => $size,
+    'style'       => $style,
+  ];
 
   // build html brick
   $content = new Brick('div');

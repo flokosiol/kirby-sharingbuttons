@@ -88,32 +88,50 @@ You can change the default appearance in your `config.php` file, e.g. `site/conf
   // define the style (normal, solid, circle, solidcircle)
   c::set('plugin.sharingbuttons.style', 'solid');
 
+  // define the url field
+  c::set('plugin.sharingbuttons.urlField', 'url');
+
+  // define the description field
+  c::set('plugin.sharingbuttons.descriptionField', 'title');
+
   // define the networks, their title and the order of the buttons
   c::set('plugin.sharingbuttons.networks', array(
-    'twitter' => 'Twitter',
-    'facebook' => 'Facebook',
-    'google' => 'Google+',
-    'linkedin' => 'LinkedIn',
-    'email' => 'E-Mail',
-    // 'tumblr' => 'Tumblr',
-    // 'pinterest' => 'Pinterest',
-    // 'reddit' => 'Reddit',
-    // 'xing' => 'XING',
-    // 'whatsapp' => 'WhatsApp',
-    // 'hackernews' => 'Hacker News',
-    // 'vk' => 'VK',
-    // 'telegram' => 'Telegram',
+    'twitter'     => 'Twitter',
+    'facebook'    => 'Facebook',
+    'google'      => 'Google+',
+    'linkedin'    => 'LinkedIn',
+    'email'       => 'E-Mail',
+    // 'tumblr'      => 'Tumblr',
+    // 'pinterest'   => 'Pinterest',
+    // 'reddit'      => 'Reddit',
+    // 'xing'        => 'XING',
+    // 'whatsapp'    => 'WhatsApp',
+    // 'hackernews'  => 'Hacker News',
+    // 'vk'          => 'VK',
+    // 'telegram'    => 'Telegram',
   ));
 ?>
 ```
 
 #### Override your own config
 
-In case you need different styles for different templates, you can override your own settings by adding params to the page method like this.
+In case you need different styles, URLs, or descriptions for different templates, you can override your own settings by adding params to the page method like this.
 
 ```
-<?= page()->sharingbuttons(['size' => 'medium', 'style' => 'circle', 'networks' => ['facebook' => 'Facebook','twitter' => 'Twitter']]) ?>
+<?= page()->sharingbuttons([
+    'size' => 'medium',
+    'style' => 'circle',
+    'urlField' => 'shareURL',
+    'descriptionField' => 'shareMessage',
+    'url' => 'https://getkirby.com',
+    'description' => 'Check this out.',
+    'networks' => ['facebook' => 'Facebook','twitter' => 'Twitter']
+    ]) ?>
 ```
+
+The parameter `url`, if provided, takes precedence over `urlField`.
+
+The parameter `description`, if provided, takes precedence over `descriptionField`.
 
 ### 3. Translations
 
@@ -138,9 +156,6 @@ You can find some translations in `site/plugins/sharingbuttons/languages/`. You 
 ```
 
 ## Roadmap and ideas
-
-- [ ] Possibility to set a custom field in `config.php` used as description (instead of page title)
-- [ ] Possibility to override the custom description by using page method parameter
 
 ## Credits
 
